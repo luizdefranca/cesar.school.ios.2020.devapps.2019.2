@@ -1,19 +1,15 @@
 //
 //  ViewController.swift
-//  OlaMundo
+//  DemoNavegacaoTela
 //
-//  Created by Douglas Frari on 15/06/20.
+//  Created by Douglas Frari on 16/06/20.
 //  Copyright © 2020 CESAR School. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class Tela1ViewController: UIViewController {
 
-    @IBOutlet weak var labelTesteBotao2: UILabel!
-    
-    @IBOutlet weak var imageTeste: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,16 +37,10 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         print("ViewController::viewDidDisappear")
     }
-
-
-    @IBAction func testButtonAction(_ sender: Any) {
-        print("Botão pressionado")
-        labelTesteBotao2.text = "Botão foi clicado!"
-        // TODO fazer a imagem desaparecer?
-        
-        imageTeste.isHidden = !imageTeste.isHidden
-        
-        
+    @IBAction func chamarTela2Versao2(_ sender: Any) {
+        performSegue(withIdentifier: "irTela2", sender: nil)
     }
+    
+    
 }
 
