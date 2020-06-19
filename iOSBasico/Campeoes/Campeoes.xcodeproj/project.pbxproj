@@ -16,6 +16,7 @@
 		ED0798E5249AF1F700360D31 /* WinnersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0798E4249AF1F700360D31 /* WinnersTableViewController.swift */; };
 		ED0798E7249AF23300360D31 /* WorldCupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0798E6249AF23300360D31 /* WorldCupViewController.swift */; };
 		ED0798E9249AF3D800360D31 /* WorldCup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0798E8249AF3D800360D31 /* WorldCup.swift */; };
+		EDC3A977249C3D670077BE62 /* WorldCupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3A976249C3D670077BE62 /* WorldCupTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ED0798E4249AF1F700360D31 /* WinnersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnersTableViewController.swift; sourceTree = "<group>"; };
 		ED0798E6249AF23300360D31 /* WorldCupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCupViewController.swift; sourceTree = "<group>"; };
 		ED0798E8249AF3D800360D31 /* WorldCup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCup.swift; sourceTree = "<group>"; };
+		EDC3A976249C3D670077BE62 /* WorldCupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCupTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				ED0798E4249AF1F700360D31 /* WinnersTableViewController.swift */,
 				ED0798E6249AF23300360D31 /* WorldCupViewController.swift */,
+				EDC3A976249C3D670077BE62 /* WorldCupTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				ED0798E5249AF1F700360D31 /* WinnersTableViewController.swift in Sources */,
 				ED0798CB249AE85D00360D31 /* AppDelegate.swift in Sources */,
 				ED0798E9249AF3D800360D31 /* WorldCup.swift in Sources */,
+				EDC3A977249C3D670077BE62 /* WorldCupTableViewCell.swift in Sources */,
 				ED0798E7249AF23300360D31 /* WorldCupViewController.swift in Sources */,
 				ED0798CD249AE85D00360D31 /* SceneDelegate.swift in Sources */,
 			);
@@ -330,6 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Campeoes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,6 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Campeoes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
