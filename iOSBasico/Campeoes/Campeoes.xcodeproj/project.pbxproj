@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED03CAB924ABFCE7006A14D7 /* GamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED03CAB824ABFCE7006A14D7 /* GamesTableViewCell.swift */; };
 		ED0798CB249AE85D00360D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0798CA249AE85D00360D31 /* AppDelegate.swift */; };
 		ED0798CD249AE85D00360D31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0798CC249AE85D00360D31 /* SceneDelegate.swift */; };
 		ED0798D2249AE85D00360D31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0798D0249AE85D00360D31 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED03CAB824ABFCE7006A14D7 /* GamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewCell.swift; sourceTree = "<group>"; };
 		ED0798C7249AE85D00360D31 /* Campeoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campeoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0798CA249AE85D00360D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED0798CC249AE85D00360D31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				ED0798E4249AF1F700360D31 /* WinnersTableViewController.swift */,
 				ED0798E6249AF23300360D31 /* WorldCupViewController.swift */,
 				EDC3A976249C3D670077BE62 /* WorldCupTableViewCell.swift */,
+				ED03CAB824ABFCE7006A14D7 /* GamesTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				ED0798E5249AF1F700360D31 /* WinnersTableViewController.swift in Sources */,
 				ED0798CB249AE85D00360D31 /* AppDelegate.swift in Sources */,
 				ED0798E9249AF3D800360D31 /* WorldCup.swift in Sources */,
+				ED03CAB924ABFCE7006A14D7 /* GamesTableViewCell.swift in Sources */,
 				EDC3A977249C3D670077BE62 /* WorldCupTableViewCell.swift in Sources */,
 				ED0798E7249AF23300360D31 /* WorldCupViewController.swift in Sources */,
 				ED0798CD249AE85D00360D31 /* SceneDelegate.swift in Sources */,

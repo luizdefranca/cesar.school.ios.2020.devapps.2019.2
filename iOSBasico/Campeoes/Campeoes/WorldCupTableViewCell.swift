@@ -42,5 +42,7 @@ class WorldCupTableViewCell: UITableViewCell {
         lbCountry.text = worldCup.country
     }
     
+    
+    
 
 } // fim da classe

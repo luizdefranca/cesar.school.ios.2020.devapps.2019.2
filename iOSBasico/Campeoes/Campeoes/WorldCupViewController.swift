@@ -52,6 +52,15 @@ class WorldCupViewController: UIViewController {
 } //  fim da classe
 
 extension WorldCupViewController: UITableViewDataSource {
+
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        // obter um nome para secao
+        let match = worldCup.matches[section]
+        return match.stage // stage representa a string que é o titulo da secao
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -66,15 +75,18 @@ extension WorldCupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        // recuperando o Game que se encontra em algum Match (oitavas de final, quartas, semi...)
+        let match = worldCup.matches[indexPath.section]
+        let game = match.games[indexPath.row]
+               
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! GamesTableViewCell
         
-//        let worldCup = worldCups[indexPath.row]
-//        cell.prepare(with: worldCup)
-        // teste temporario
-        cell.textLabel?.text = " 2 x 2"
-        
+        cell.prepareCell(game)
+               
         return cell
     }
+    
+    
     
     
     

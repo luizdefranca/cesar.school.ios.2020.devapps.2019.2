@@ -17,6 +17,8 @@ class WinnersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         loadWorldCups()
     }
 
