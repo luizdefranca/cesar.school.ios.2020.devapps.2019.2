@@ -22,7 +22,7 @@
                                 <color key="textColor" red="0.59607843137254901" green="0.14117647058823529" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-nA-BPd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="máx. 99" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-nA-BPd">
                                 <rect key="frame" x="271" y="158" width="80" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="M1x-Ve-kMy"/>
@@ -469,7 +469,7 @@ Há diversos programas disponíveis que armazenam os dados de maneira segura e a
     <resources>
         <image name="lock" width="172.66667175292969" height="210"/>
         <namedColor name="default">
-            <color red="0.59607843137254901" green="0.14117647058823529" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.59600001573562622" green="0.14100000262260437" blue="0.39599999785423279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

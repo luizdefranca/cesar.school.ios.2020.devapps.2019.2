@@ -40,7 +40,7 @@ class PasswordGenerator {
     // 4 função que gera a senha
     func generate(total: Int) -> [String] {
         passwords.removeAll()
-        var universe: String = ""
+        var universe: String = " "
         
         if useLetters {
             universe += letters
