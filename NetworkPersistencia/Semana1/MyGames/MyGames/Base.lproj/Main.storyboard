@@ -16,8 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="OhP-J3-ra3" userLabel="View - esconder linhas">
+                            <rect key="frame" x="0.0" y="156" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="ffs-A1-xys">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="ffs-A1-xys" customClass="GameTableViewCell" customModule="MyGames" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ffs-A1-xys" id="qQ9-Np-dij">
@@ -57,6 +62,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ivCover" destination="q09-0f-6Ji" id="dcg-Db-uMe"/>
+                                    <outlet property="lbConsole" destination="Kfo-Gz-E1P" id="gSl-j4-7jl"/>
+                                    <outlet property="lbTitle" destination="1tf-cl-Hta" id="qvg-29-D4Z"/>
                                     <segue destination="ceo-gX-UiW" kind="show" id="61M-UW-124"/>
                                 </connections>
                             </tableViewCell>
@@ -78,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="1827.5362318840582" y="-11.383928571428571"/>
         </scene>
-        <!--Add Edit View Controller-->
+        <!--Adicionar Jogo-->
         <scene sceneID="xk1-4H-gvO">
             <objects>
                 <viewController id="r9v-ZY-3Uk" customClass="AddEditViewController" customModule="MyGames" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,10 +135,16 @@
                                 <state key="normal" title="ADICIONAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addEditGame:" destination="r9v-ZY-3Uk" eventType="touchUpInside" id="zpc-AR-lcx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3L-2x-ale">
                                 <rect key="frame" x="30.5" y="444.5" width="353" height="282"/>
                                 <state key="normal" title="Toque para adicionar a imagem de capa"/>
+                                <connections>
+                                    <action selector="AddEditCover:" destination="r9v-ZY-3Uk" eventType="touchUpInside" id="yPz-83-KtY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -164,7 +178,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ae4-A7-zYN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cHJ-iP-bVD"/>
+                    <navigationItem key="navigationItem" title="Adicionar Jogo" id="cHJ-iP-bVD"/>
+                    <connections>
+                        <outlet property="btAddEdit" destination="pFO-Tt-kyc" id="dLL-kX-Ccn"/>
+                        <outlet property="btCover" destination="W3L-2x-ale" id="xIa-jz-Udd"/>
+                        <outlet property="dpReleaseDate" destination="nbl-oT-UuD" id="PdT-QD-2rR"/>
+                        <outlet property="ivCover" destination="VRa-5E-FHh" id="n0l-Bf-yEN"/>
+                        <outlet property="tfConsole" destination="UCR-qz-Jro" id="Ccp-qX-bSf"/>
+                        <outlet property="tfTitle" destination="Bhm-U5-aWg" id="hWZ-dg-Gjz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yM-IO-Z2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,6 +200,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="6aV-EE-o9C">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ubq-y8-d6j" style="IBUITableViewCellStyleDefault" id="DQV-oW-U0v">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -202,7 +229,13 @@
                             <outlet property="delegate" destination="7hF-hn-tYt" id="6y5-CY-jvX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Plataformas" id="PtM-R3-ZAw"/>
+                    <navigationItem key="navigationItem" title="Plataformas" id="PtM-R3-ZAw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j5q-6k-s2x">
+                            <connections>
+                                <action selector="addConsole:" destination="7hF-hn-tYt" id="SMP-vP-tLn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0L-zS-cGy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,6 +290,12 @@
                         <viewLayoutGuide key="safeArea" id="U7c-Kn-cGi"/>
                     </view>
                     <navigationItem key="navigationItem" id="FVJ-D7-Ukm"/>
+                    <connections>
+                        <outlet property="ivCover" destination="Mdw-Gm-5eM" id="bng-TQ-bt4"/>
+                        <outlet property="lbConsole" destination="WYO-PR-UWh" id="P3C-gQ-KiE"/>
+                        <outlet property="lbReleaseDate" destination="Aax-D4-b7x" id="fQQ-0h-ZlJ"/>
+                        <outlet property="lbTitle" destination="YrL-UE-wmW" id="h8U-0e-1GP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdB-ke-VjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,6 +310,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="second"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="second"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,6 +336,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="main"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="main"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,6 +359,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xuk-qs-mwL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sgF-hk-VSA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -336,10 +378,10 @@
         <image name="console" width="23" height="23"/>
         <image name="game" width="23" height="23"/>
         <namedColor name="main">
-            <color red="0.0" green="0.68235294117647061" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.68199998140335083" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="second">
-            <color red="1" green="0.23529411764705882" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23499999940395355" blue="0.58399999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
