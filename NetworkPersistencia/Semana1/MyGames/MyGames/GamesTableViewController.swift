@@ -12,6 +12,8 @@ import CoreData
 class GamesTableViewController: UITableViewController {
 
     
+    var label = UILabel()
+    
     // esse tipo de classe oferece mais recursos para monitorar os dados
     var fetchedResultController:NSFetchedResultsController<Game>!
     
@@ -21,6 +23,10 @@ class GamesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // mensagem default
+        label.text = "Você não tem jogos cadastrados"
+        label.textAlignment = .center
+        
         loadGames()
     }
     
@@ -49,6 +55,8 @@ class GamesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let count = fetchedResultController?.fetchedObjects?.count ?? 0
+        
+        tableView.backgroundView = count == 0 ? label : nil        
         
         return count
     }
