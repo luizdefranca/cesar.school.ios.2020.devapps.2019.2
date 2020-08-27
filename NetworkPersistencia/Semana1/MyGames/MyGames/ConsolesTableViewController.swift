@@ -37,6 +37,9 @@ class ConsolesTableViewController: UITableViewController {
         
         cell.textLabel?.text = console.name
         
+        // podemos setar uma imagem (se necessario)
+        // cell.imageView?.image = UIImage(named: "noCover")
+        
         return cell
         
     }

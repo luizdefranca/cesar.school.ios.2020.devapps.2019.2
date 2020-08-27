@@ -29,42 +29,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo do game aqui" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tf-cl-Hta">
-                                            <rect key="frame" x="112" y="15" width="266" height="26"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q09-0f-6Ji">
-                                            <rect key="frame" x="36" y="15" width="60" height="70"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzv-fQ-ZDJ">
+                                            <rect key="frame" x="20" y="11" width="374" height="78"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo do game aqui" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmH-08-Nhq">
+                                                    <rect key="frame" x="84" y="4" width="282" height="26"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4nI-o7-5yj">
+                                                    <rect key="frame" x="16" y="4" width="60" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="r2L-Ma-ie5"/>
+                                                        <constraint firstAttribute="height" constant="70" id="rLj-yn-Njc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plataforma aqui" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQP-4O-Mqt">
+                                                    <rect key="frame" x="84" y="34" width="282" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="243-Xr-fQw"/>
-                                                <constraint firstAttribute="height" constant="70" id="6RN-0k-6nW"/>
+                                                <constraint firstItem="lQP-4O-Mqt" firstAttribute="top" secondItem="OmH-08-Nhq" secondAttribute="bottom" constant="4" id="0IU-fZ-zeu"/>
+                                                <constraint firstItem="4nI-o7-5yj" firstAttribute="top" secondItem="Fzv-fQ-ZDJ" secondAttribute="top" constant="4" id="CZz-gW-zUV"/>
+                                                <constraint firstItem="OmH-08-Nhq" firstAttribute="leading" secondItem="4nI-o7-5yj" secondAttribute="trailing" constant="8" id="CiD-hT-WCr"/>
+                                                <constraint firstItem="lQP-4O-Mqt" firstAttribute="leading" secondItem="4nI-o7-5yj" secondAttribute="trailing" constant="8" id="FoW-jh-MUq"/>
+                                                <constraint firstAttribute="trailing" secondItem="OmH-08-Nhq" secondAttribute="trailing" constant="8" id="ItD-r0-3tX"/>
+                                                <constraint firstAttribute="bottom" secondItem="4nI-o7-5yj" secondAttribute="bottom" constant="4" id="MS2-I1-SH9"/>
+                                                <constraint firstItem="OmH-08-Nhq" firstAttribute="top" secondItem="4nI-o7-5yj" secondAttribute="top" id="QoR-yc-0ue"/>
+                                                <constraint firstAttribute="trailing" secondItem="lQP-4O-Mqt" secondAttribute="trailing" constant="8" id="YqZ-jD-Uin"/>
+                                                <constraint firstItem="4nI-o7-5yj" firstAttribute="leading" secondItem="Fzv-fQ-ZDJ" secondAttribute="leading" constant="16" id="c3K-uu-aVw"/>
                                             </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plataforma aqui" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfo-Gz-E1P">
-                                            <rect key="frame" x="112" y="45" width="266" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="1tf-cl-Hta" secondAttribute="trailing" constant="16" id="9Hr-gR-gqA"/>
-                                        <constraint firstItem="Kfo-Gz-E1P" firstAttribute="top" secondItem="1tf-cl-Hta" secondAttribute="bottom" constant="4" id="B69-k1-nNz"/>
-                                        <constraint firstItem="q09-0f-6Ji" firstAttribute="leading" secondItem="qQ9-Np-dij" secondAttribute="leadingMargin" constant="16" id="C0a-3a-EwE"/>
-                                        <constraint firstItem="Kfo-Gz-E1P" firstAttribute="leading" secondItem="q09-0f-6Ji" secondAttribute="trailing" constant="16" id="DSq-Qm-Cgh"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Kfo-Gz-E1P" secondAttribute="trailing" constant="16" id="XHc-ak-vf9"/>
-                                        <constraint firstItem="1tf-cl-Hta" firstAttribute="leading" secondItem="q09-0f-6Ji" secondAttribute="trailing" constant="16" id="YGv-Zk-CPY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="q09-0f-6Ji" secondAttribute="bottom" constant="4" id="waF-lE-7ip"/>
-                                        <constraint firstItem="1tf-cl-Hta" firstAttribute="top" secondItem="q09-0f-6Ji" secondAttribute="top" id="xou-VN-CQY"/>
-                                        <constraint firstItem="q09-0f-6Ji" firstAttribute="top" secondItem="qQ9-Np-dij" secondAttribute="topMargin" constant="4" id="y7k-YJ-gKY"/>
+                                        <constraint firstItem="Fzv-fQ-ZDJ" firstAttribute="top" secondItem="qQ9-Np-dij" secondAttribute="topMargin" id="68M-cg-jMw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Fzv-fQ-ZDJ" secondAttribute="bottom" id="HHN-Il-iJ7"/>
+                                        <constraint firstItem="Fzv-fQ-ZDJ" firstAttribute="leading" secondItem="qQ9-Np-dij" secondAttribute="leadingMargin" id="dIg-on-q0p"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fzv-fQ-ZDJ" secondAttribute="trailing" id="n1F-o9-8ZH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="ivCover" destination="q09-0f-6Ji" id="dcg-Db-uMe"/>
-                                    <outlet property="lbConsole" destination="Kfo-Gz-E1P" id="gSl-j4-7jl"/>
-                                    <outlet property="lbTitle" destination="1tf-cl-Hta" id="qvg-29-D4Z"/>
+                                    <outlet property="ivCover" destination="4nI-o7-5yj" id="qPh-bL-yh8"/>
+                                    <outlet property="lbConsole" destination="lQP-4O-Mqt" id="Ktp-Gw-zrG"/>
+                                    <outlet property="lbTitle" destination="OmH-08-Nhq" id="yiD-KK-vvh"/>
                                     <segue destination="ceo-gX-UiW" kind="show" identifier="gameSegue" id="61M-UW-124"/>
                                 </connections>
                             </tableViewCell>
@@ -382,7 +393,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8JO-XD-ivH"/>
+        <segue reference="izw-uN-ksC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="console" width="23" height="23"/>
