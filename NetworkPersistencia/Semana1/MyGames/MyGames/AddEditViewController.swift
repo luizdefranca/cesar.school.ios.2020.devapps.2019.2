@@ -42,9 +42,24 @@ class AddEditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        if ConsolesManager.shared.consoles.isEmpty {
+            // TODO devemos exibir um alerta que precisamos cadastrar plataforma antes.
+            let alert = UIAlertController(title: "Atenção!", message: "É necessário cadastrar uma ou mais plataformas primeiro", preferredStyle: .alert)
+            alert.view.tintColor = UIColor(named: "second")
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(action) in            
+                self.navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            prepareDataLayout()
+        }
+        
         // precisamos saber se estamos CRIANDO algo NOVO ou editando algo existente.
         // Faremos essa lógica aqui.
-        prepareDataLayout()
+        
     }
     
     func prepareDataLayout() {
