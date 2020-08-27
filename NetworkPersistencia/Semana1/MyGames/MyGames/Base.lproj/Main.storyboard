@@ -178,7 +178,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ae4-A7-zYN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Adicionar Jogo" id="cHJ-iP-bVD"/>
+                    <navigationItem key="navigationItem" title="Adicionar Jogo" largeTitleDisplayMode="always" id="cHJ-iP-bVD"/>
                     <connections>
                         <outlet property="btAddEdit" destination="pFO-Tt-kyc" id="dLL-kX-Ccn"/>
                         <outlet property="btCover" destination="W3L-2x-ale" id="xIa-jz-Udd"/>
@@ -250,25 +250,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título do game" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrL-UE-wmW">
-                                <rect key="frame" x="16" y="156" width="382" height="32.5"/>
+                                <rect key="frame" x="16" y="104" width="382" height="32.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <color key="textColor" name="main"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plataforma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYO-PR-UWh">
-                                <rect key="frame" x="16" y="204.5" width="382" height="21"/>
+                                <rect key="frame" x="16" y="152.5" width="382" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aax-D4-b7x">
-                                <rect key="frame" x="16" y="241.5" width="382" height="21"/>
+                                <rect key="frame" x="16" y="189.5" width="382" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-Gm-5eM">
-                                <rect key="frame" x="16" y="278.5" width="382" height="518.5"/>
+                                <rect key="frame" x="16" y="226.5" width="382" height="570.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -289,7 +289,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U7c-Kn-cGi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FVJ-D7-Ukm">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="FVJ-D7-Ukm">
+                        <barButtonItem key="backBarButtonItem" title=" " id="t5Q-AH-LRd"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Hfv-dV-kHf">
                             <connections>
                                 <segue destination="r9v-ZY-3Uk" kind="show" id="8JO-XD-ivH"/>
