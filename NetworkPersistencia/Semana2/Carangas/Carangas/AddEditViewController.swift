@@ -111,6 +111,20 @@ class AddEditViewController: UIViewController {
         }
     }
     
+    fileprivate func editar() {
+        // 2 - edit current car
+        REST.update(car: car!) { (sucess) in
+            if sucess {
+                // o servidor conseguiu
+                self.goBack()
+                
+            } else {
+                //  exibir um alerta para usuario aqui
+                self.showAlert(withTitle: "Edição", withMessage: "Servidor nao conseguiu editar o CARRO", isTryAgain: true, operation: .edit_car)
+            }
+        }
+    }
+    
     @IBAction func addEdit(_ sender: UIButton) {
         
         if car == nil {
@@ -128,19 +142,12 @@ class AddEditViewController: UIViewController {
         
         
         if car?._id == nil {
+            
             salvar()
+            
         } else {
-            // 2 - edit current car
-            REST.update(car: car!) { (sucess) in
-                if sucess {
-                    // o servidor conseguiu
-                    self.goBack()
-                    
-                } else {
-                    //  exibir um alerta para usuario aqui
-                    self.showAlert(withTitle: "Edição", withMessage: "Servidor nao conseguiu editar o CARRO", isTryAgain: true, operation: .edit_car)
-                }
-            }
+            
+            editar()
         }
         
         
@@ -188,14 +195,11 @@ class AddEditViewController: UIViewController {
                
                 switch oper {
                     case .add_car:
-                        // ?
                         self.salvar()
-                            
-                    }
                     case .edit_car:
-                        // ?
+                        self.editar()
                     case .get_brands:
-                        // ?
+                        self.loadBrands()
                 }
                
             })
