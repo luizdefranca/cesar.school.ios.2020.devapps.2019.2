@@ -93,17 +93,33 @@ class CarsTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+          
+            // 1 - Código para remover considerando os CUIDADOS mencionados acima:
+            let car = cars[indexPath.row]
+            
+            REST.delete(car: car) { (success) in
+                if success {
+                    
+                    // ATENCAO nao esquecer disso
+                    self.cars.remove(at: indexPath.row)
+                    
+                    DispatchQueue.main.async {
+                        // Delete the row from the data source
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                } else {
+                    // TODO colocar um alerta de erro aqui
+                    print("- colocar um alerta de erro aqui -")
+                }
+            }
+            
+        }
+    }
+    
     
     /*
      // Override to support rearranging the table view.
