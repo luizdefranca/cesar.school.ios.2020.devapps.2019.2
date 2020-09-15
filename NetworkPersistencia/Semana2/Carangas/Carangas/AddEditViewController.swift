@@ -71,16 +71,26 @@ class AddEditViewController: UIViewController {
     
     func loadBrands() {
        
+        startLoadingAnimation()
+        
         REST.loadBrands { (brands) in
-            guard let brands = brands else {return}
+            
+            guard let brands = brands else {
+                DispatchQueue.main.async {
+                    self.stopLoadingAnimation()
+                }
+                self.showAlert(withTitle: "Marcas", withMessage: "Não foi possível obter as marcas dos carros.", isTryAgain: true, operation: .get_brands)
+                return
+            }
            
             // ascending order
             self.brands = brands.sorted(by: {$0.fipe_name < $1.fipe_name})
            
             DispatchQueue.main.async {
+                self.stopLoadingAnimation()
+                
                 self.pickerView.reloadAllComponents()
-            }
-               
+            }               
         }
     }
     
@@ -97,23 +107,39 @@ class AddEditViewController: UIViewController {
     
     // MARK: - IBActions
     fileprivate func salvar() {
+        
+        startLoadingAnimation()
+        
         // new car
         // 1 - devemos chamar o metodo para enviar o carro para o servidor
         REST.save(car: car!) { (sucess) in
-            if sucess {
+            
+            DispatchQueue.main.async {
+                self.stopLoadingAnimation()
+            }
+            
+            if sucess == true {
                 // o servidor conseguiu
                 self.goBack()
                 
             } else {
                 //  exibir um alerta para usuario aqui
-                self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor nao conseguiu criar o CARRO", isTryAgain: true, operation: .add_car)
+                self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
             }
         }
     }
     
     fileprivate func editar() {
+        
+        startLoadingAnimation()
+        
         // 2 - edit current car
         REST.update(car: car!) { (sucess) in
+            
+            DispatchQueue.main.async {
+                self.stopLoadingAnimation()
+            }
+            
             if sucess {
                 // o servidor conseguiu
                 self.goBack()
@@ -150,10 +176,6 @@ class AddEditViewController: UIViewController {
             editar()
         }
         
-        
-        
-        
-        
     }
     
     func goBack() {
@@ -167,26 +189,20 @@ class AddEditViewController: UIViewController {
     func startLoadingAnimation() {
         self.btAddEdit.isEnabled = false
         self.btAddEdit.backgroundColor = .gray
-        self.btAddEdit.alpha = 0.5
+        //self.btAddEdit.alpha = 0.5
         self.loading.startAnimating()
     }
     
     func stopLoadingAnimation() {
         self.btAddEdit.isEnabled = true
         self.btAddEdit.backgroundColor = UIColor(named: "main")
-        self.btAddEdit.alpha = 0
+        //self.btAddEdit.alpha = 0.5
         self.loading.stopAnimating()
     }
     
     
     func showAlert(withTitle titleMessage: String, withMessage message: String, isTryAgain hasRetry: Bool, operation oper: CarOperationAction) {
        
-        if oper != .get_brands {
-            DispatchQueue.main.async {
-                // ?
-            }
-           
-        }
        
         let alert = UIAlertController(title: titleMessage, message: message, preferredStyle: .actionSheet)
        

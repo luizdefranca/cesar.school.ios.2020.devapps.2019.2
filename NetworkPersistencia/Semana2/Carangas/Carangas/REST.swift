@@ -79,7 +79,7 @@ class REST {
                         let cars = try JSONDecoder().decode([Car].self, from: data)
                         // pronto para reter dados
                         
-                        onComplete(cars)
+                        onComplete(cars)                        
                         
                     } catch {
                         // algum erro ocorreu com os dados

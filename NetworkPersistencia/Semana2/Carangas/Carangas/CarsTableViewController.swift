@@ -12,30 +12,46 @@ class CarsTableViewController: UITableViewController {
     
     var cars: [Car] = []
     
+    var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = UIColor(named: "main")
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        label.text = "Carregando dados do servidor..."
         
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        loadData()
+    }
+    
+    
+    @objc func loadData() {
+        
         REST.loadCars(onComplete: { (cars) in
             
             self.cars = cars
-            
-            
-            if Thread.isMainThread {
+                        
+            // precisa recarregar a tableview usando a main UI thread
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
-            } else {
-                // precisa recarregar a tableview usando a main UI thread
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
             }
+            
             
         }) { (error) in
             
@@ -61,13 +77,33 @@ class CarsTableViewController: UITableViewController {
             // TODO substituir por um objeto Alerta para exibir para o usuario
             print(response)
             
+            DispatchQueue.main.async {
+                
+                self.refreshControl?.endRefreshing()
+                
+                if response.isEmpty == false {
+                    self.label.text = "Ocorreu um erro: \n\n\(response)"
+                } else {
+                    self.label.text = "Ocorreu um erro desconhecido."
+                }
+            }
+            
+            
         }
+        
     }
     
     // MARK: - Table view data source
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if cars.count == 0 {
+            // mostrar mensagem padrao
+            self.tableView.backgroundView = self.label
+        } else {
+            self.label.text = ""
+        }
         
         return cars.count
     }
