@@ -28,9 +28,9 @@ enum RESTOperation {
 class REST {
     
     // URL principal do servidor que obtem os dados dos carros cadastrados la
-    private static let basePath = "https://carangas.herokuapp.com/cars"
+    public static let basePath = "https://carangas.herokuapp.com/cars"
     
-    private static let urlFipe = "https://fipeapi.appspot.com/api/1/carros/marcas.json"
+    public static let urlFipe = "https://fipeapi.appspot.com/api/1/carros/marcas.json"
     
     
     // session criada automaticamente e disponivel para reusar

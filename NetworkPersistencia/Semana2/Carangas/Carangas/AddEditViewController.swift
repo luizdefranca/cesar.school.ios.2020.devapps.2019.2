@@ -112,13 +112,14 @@ class AddEditViewController: UIViewController {
         
         // new car
         // 1 - devemos chamar o metodo para enviar o carro para o servidor
-        REST.save(car: car!) { (sucess) in
+        
+        RESTAlamofire.save(car: car!, onComplete: { (success) in
             
             DispatchQueue.main.async {
                 self.stopLoadingAnimation()
             }
             
-            if sucess == true {
+            if success == true {
                 // o servidor conseguiu
                 self.goBack()
                 
@@ -126,7 +127,29 @@ class AddEditViewController: UIViewController {
                 //  exibir um alerta para usuario aqui
                 self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
             }
+            
+            
+        }) { (error) in
+            // TODO - mostrar uma alerto porque ocorreu um erro aqui
+            self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
         }
+        
+        
+//        REST.save(car: car!) { (sucess) in
+//
+//            DispatchQueue.main.async {
+//                self.stopLoadingAnimation()
+//            }
+//
+//            if sucess == true {
+//                // o servidor conseguiu
+//                self.goBack()
+//
+//            } else {
+//                //  exibir um alerta para usuario aqui
+//                self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
+//            }
+//        }
     }
     
     fileprivate func editar() {

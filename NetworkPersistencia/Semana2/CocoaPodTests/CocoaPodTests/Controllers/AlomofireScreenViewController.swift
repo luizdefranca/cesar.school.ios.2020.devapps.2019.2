@@ -14,7 +14,7 @@ class AlomofireScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        AF.request("https://httpbin.org/get").response { response in
+        AF.request("https://httpbin.org/get", method: .post).response { response in
             debugPrint(response)
         }
     }

@@ -42,7 +42,7 @@ class CarsTableViewController: UITableViewController {
     
     @objc func loadData() {
         
-        REST.loadCars(onComplete: { (cars) in
+        RESTAlamofire.loadCars(onComplete: { (cars) in
             
             self.cars = cars
                         
