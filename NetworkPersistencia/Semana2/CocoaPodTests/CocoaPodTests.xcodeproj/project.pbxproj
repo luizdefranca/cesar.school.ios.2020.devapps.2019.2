@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C51E9BE68A81F909F557CE7 /* Pods_CocoaPodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B22E8B8F7DC53CEA78F1523 /* Pods_CocoaPodTests.framework */; };
+		ED806E2C2512C8D200F5FBDC /* AlomofireScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED806E2B2512C8D200F5FBDC /* AlomofireScreenViewController.swift */; };
 		EDDCA4F420A5ABBE0078C508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA4F320A5ABBE0078C508 /* AppDelegate.swift */; };
 		EDDCA4F620A5ABBE0078C508 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDCA4F520A5ABBE0078C508 /* ViewController.swift */; };
 		EDDCA4F920A5ABBE0078C508 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDCA4F720A5ABBE0078C508 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		6AC16D018AAFADAE9E7784CE /* Pods-CocoaPodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodTests.release.xcconfig"; path = "Target Support Files/Pods-CocoaPodTests/Pods-CocoaPodTests.release.xcconfig"; sourceTree = "<group>"; };
 		8693B382621000D395016D09 /* Pods-CocoaPodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodTests.debug.xcconfig"; path = "Target Support Files/Pods-CocoaPodTests/Pods-CocoaPodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B22E8B8F7DC53CEA78F1523 /* Pods_CocoaPodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED806E2B2512C8D200F5FBDC /* AlomofireScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlomofireScreenViewController.swift; sourceTree = "<group>"; };
 		EDDCA4F020A5ABBE0078C508 /* CocoaPodTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaPodTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDCA4F320A5ABBE0078C508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDDCA4F520A5ABBE0078C508 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +48,6 @@
 				8693B382621000D395016D09 /* Pods-CocoaPodTests.debug.xcconfig */,
 				6AC16D018AAFADAE9E7784CE /* Pods-CocoaPodTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -101,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				EDDCA4F520A5ABBE0078C508 /* ViewController.swift */,
+				ED806E2B2512C8D200F5FBDC /* AlomofireScreenViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED806E2C2512C8D200F5FBDC /* AlomofireScreenViewController.swift in Sources */,
 				EDDCA4F620A5ABBE0078C508 /* ViewController.swift in Sources */,
 				EDDCA4F420A5ABBE0078C508 /* AppDelegate.swift in Sources */,
 			);
