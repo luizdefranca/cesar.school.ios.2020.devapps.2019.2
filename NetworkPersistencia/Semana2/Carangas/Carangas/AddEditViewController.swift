@@ -15,7 +15,7 @@ enum CarOperationAction {
 }
 
 class AddEditViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     @IBOutlet weak var tfBrand: UITextField!
     @IBOutlet weak var tfName: UITextField!
@@ -23,7 +23,7 @@ class AddEditViewController: UIViewController {
     @IBOutlet weak var scGasType: UISegmentedControl!
     @IBOutlet weak var btAddEdit: UIButton!
     @IBOutlet weak var loading: UIActivityIndicatorView!
-
+    
     
     // MARK: - Properties
     var car: Car?
@@ -34,7 +34,7 @@ class AddEditViewController: UIViewController {
         picker.backgroundColor = .white
         picker.delegate = self
         picker.dataSource = self
-       
+        
         return picker
     } ()
     
@@ -64,13 +64,13 @@ class AddEditViewController: UIViewController {
         
         tfBrand.inputAccessoryView = toolbar
         tfBrand.inputView = pickerView
-
+        
         loadBrands()
     }
     
     
     func loadBrands() {
-       
+        
         startLoadingAnimation()
         
         REST.loadBrands { (brands) in
@@ -82,10 +82,10 @@ class AddEditViewController: UIViewController {
                 self.showAlert(withTitle: "Marcas", withMessage: "Não foi possível obter as marcas dos carros.", isTryAgain: true, operation: .get_brands)
                 return
             }
-           
+            
             // ascending order
             self.brands = brands.sorted(by: {$0.fipe_name < $1.fipe_name})
-           
+            
             DispatchQueue.main.async {
                 self.stopLoadingAnimation()
                 
@@ -130,40 +130,27 @@ class AddEditViewController: UIViewController {
             
             
         }) { (error) in
-            // TODO - mostrar uma alerto porque ocorreu um erro aqui
-            self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
+            var response: String = ""
+            
+            // obtem o erro da funcao utilitaria
+            CarsTableViewController.getResultError(error, &response)
+            
+            self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro. \n\(response)", isTryAgain: true, operation: .add_car)
         }
-        
-        
-//        REST.save(car: car!) { (sucess) in
-//
-//            DispatchQueue.main.async {
-//                self.stopLoadingAnimation()
-//            }
-//
-//            if sucess == true {
-//                // o servidor conseguiu
-//                self.goBack()
-//
-//            } else {
-//                //  exibir um alerta para usuario aqui
-//                self.showAlert(withTitle: "Cadastrar", withMessage: "Servidor não conseguiu criar o Carro.", isTryAgain: true, operation: .add_car)
-//            }
-//        }
     }
+    
     
     fileprivate func editar() {
         
         startLoadingAnimation()
         
-        // 2 - edit current car
-        REST.update(car: car!) { (sucess) in
+        RESTAlamofire.update(car: car!, onComplete: { (success) in
             
             DispatchQueue.main.async {
                 self.stopLoadingAnimation()
             }
             
-            if sucess {
+            if success {
                 // o servidor conseguiu
                 self.goBack()
                 
@@ -171,7 +158,15 @@ class AddEditViewController: UIViewController {
                 //  exibir um alerta para usuario aqui
                 self.showAlert(withTitle: "Edição", withMessage: "Servidor nao conseguiu editar o CARRO", isTryAgain: true, operation: .edit_car)
             }
-        }
+            
+        }) { (error) in
+            var response: String = ""
+            
+            // obtem o erro da funcao utilitaria
+            CarsTableViewController.getResultError(error, &response)
+            
+            self.showAlert(withTitle: "Editar", withMessage: "Servidor não conseguiu editar o Carro. \n\(response)", isTryAgain: true, operation: .edit_car)
+        }    
     }
     
     @IBAction func addEdit(_ sender: UIButton) {
@@ -225,57 +220,57 @@ class AddEditViewController: UIViewController {
     
     
     func showAlert(withTitle titleMessage: String, withMessage message: String, isTryAgain hasRetry: Bool, operation oper: CarOperationAction) {
-       
-       
+        
+        
         let alert = UIAlertController(title: titleMessage, message: message, preferredStyle: .actionSheet)
-       
+        
         if hasRetry {
             let tryAgainAction = UIAlertAction(title: "Tentar novamente", style: .default, handler: {(action: UIAlertAction) in
-               
+                
                 switch oper {
-                    case .add_car:
-                        self.salvar()
-                    case .edit_car:
-                        self.editar()
-                    case .get_brands:
-                        self.loadBrands()
+                case .add_car:
+                    self.salvar()
+                case .edit_car:
+                    self.editar()
+                case .get_brands:
+                    self.loadBrands()
                 }
-               
+                
             })
             alert.addAction(tryAgainAction)
-           
+            
             let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: {(action: UIAlertAction) in
                 self.goBack()
             })
             alert.addAction(cancelAction)
         }
-       
+        
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-
+    
 } // fim da classe
 
 
 extension AddEditViewController:UIPickerViewDelegate, UIPickerViewDataSource {
-   
+    
     // MARK: - UIPickerViewDelegate
-   
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       
+        
         let brand = brands[row]
         return brand.fipe_name
     }
-   
-   
+    
+    
     // MARK: - UIPickerViewDataSource
-   
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-   
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return brands.count
     }

@@ -137,8 +137,9 @@ class CarsTableViewController: UITableViewController {
             // 1 - Código para remover considerando os CUIDADOS mencionados acima:
             let car = cars[indexPath.row]
             
-            REST.delete(car: car) { (success) in
-                if success {
+            RESTAlamofire.delete(car: car, onComplete: { (deletouComSucesso) in
+                
+                if deletouComSucesso {
                     
                     // ATENCAO nao esquecer disso
                     self.cars.remove(at: indexPath.row)
@@ -151,8 +152,28 @@ class CarsTableViewController: UITableViewController {
                     // TODO colocar um alerta de erro aqui
                     print("- colocar um alerta de erro aqui -")
                 }
-            }
             
+                
+            }) { (error) in
+                
+                var response: String = ""
+                
+                // pega o erro da funcao utilitaria
+                CarsTableViewController.getResultError(error, &response)
+                
+                DispatchQueue.main.async {
+                    
+                    self.refreshControl?.endRefreshing()
+                    
+                    if response.isEmpty == false {
+                        self.label.text = "Ocorreu um erro ao deletar: \n\n\(response)"
+                    } else {
+                        self.label.text = "Ocorreu um erro desconhecido ao deletar."
+                    }
+                }
+                
+            }
+
         }
     }
     
@@ -182,6 +203,31 @@ class CarsTableViewController: UITableViewController {
         if segue.identifier == "viewSegue" {
             let vc = segue.destination as? CarViewController
             vc?.car = cars[tableView.indexPathForSelectedRow!.row]
+        }
+    }
+    
+    
+    
+    /// Essa funcao é usada para identificar o erro e customizar a mensagem esperada.
+    /// - Parameters:
+    ///   - error: error um objeto CarError (veja o Enum para mais informacoes)
+    ///   - response: uma string que representa o erro customizado. Usamos para exibir na mensagem do alerta.
+    class func getResultError(_ error: CarError, _ response: inout String) {
+        switch error {
+        case .invalidJSON:
+            response = "invalidJSON. Não foi possível (de)codificar a requição/resposta do objeto JSON."
+        case .noData:
+            response = "noData: não foi possível obter uma resposta do objeto retornado."
+        case .noResponse:
+            response = "noResponse: o servidor parece não estar respondendo."
+        case .url:
+            response = "URL inválida ou não pode ser criada."
+        case .taskError(let error):
+            response = "\(error.localizedDescription)"
+        case .responseStatusCode(let code):
+            if code != 200 {
+                response = "Algum problema com o servidor. Status code:( \nError:\(code)"
+            }
         }
     }
     

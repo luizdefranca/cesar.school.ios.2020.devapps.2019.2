@@ -13,7 +13,7 @@ class RESTAlamofire {
     
     class func loadCars(onComplete: @escaping ([Car]) -> Void, onError: @escaping (CarError) -> Void) {
         
-        AF.request(REST.basePath).response { response in
+        AF.request(REST.basePath).responseJSON { response in
             
             do {
                 if response.data == nil {
@@ -67,34 +67,35 @@ class RESTAlamofire {
         let urlString = REST.basePath + "/" + (car._id ?? "")
         
         guard let url = URL(string: urlString) else {
-            onComplete(false)
+            onError(.url)
             return
         }
         var request = URLRequest(url: url)
-        var httpMethod: String = ""
+        var httpMethod: HTTPMethod = .get
         
         switch operation {
         case .delete:
-            httpMethod = "DELETE"
+            httpMethod = HTTPMethod.delete
         case .save:
-            httpMethod = "POST"
+            httpMethod = HTTPMethod.post
         case .update:
-            httpMethod = "PUT"
+            httpMethod = HTTPMethod.put
         }
-        request.httpMethod = httpMethod
         
         
         // transformar objeto para um JSON, processo contrario do decoder -> Encoder
         guard let json = try? JSONEncoder().encode(car) else {
-            onComplete(false)
+            onError(.invalidJSON)
             return
         }
+        
         request.httpBody = json
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        AF.request(url,
+                   method: httpMethod,
+                   parameters: car,
+                   encoder: JSONParameterEncoder.default).response { response in
         
-        AF.request(REST.basePath).response { response in
-            
             if response.error == nil {
                 
                 guard let responseFinal = response.response else {
